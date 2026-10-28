@@ -12,6 +12,7 @@ val_count = filedata_.value_counts(['points'])
 # Using groupwise_analysis
 # I think here the Series creates a name, Points
 val_group = filedata_.groupby('points').points.count()
+val_group = filedata_.groupby('points').size() # This also has the same function has the same output as the code above
 
 # We can also use summary functions with the above function
 price_group = filedata_.groupby('points').price.min()
@@ -46,4 +47,4 @@ sort_index = index_reset.sort_index()
 # Finally, know that you can sort by more than one column at a time:
 sort_by2 = index_reset.sort_values(by=['country', 'len'])
 
-print(type(summary))
+print(filedata_.head())
